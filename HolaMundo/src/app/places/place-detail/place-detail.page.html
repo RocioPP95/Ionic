@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-button slot ="start">
+      <ion-back-button defaultHref ="/places"></ion-back-button>
+    </ion-button>
+    <ion-button slot="end" (click)="deletePlace()">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+    <ion-title>{{place.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="place.imageURL"></ion-img>
+        <!-- <img src="{{place.imageURL}}"> CUANDO SOLO USAMOS HTML-->
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{place.title}}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="place.comments != undefined && place.comments.length>0; else nocoments"><!--Se tiene que poner en el row, aunque tambien se puede poner en el <list>-->
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let comment of place.comments">
+            {{comment}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ng-template #nocoments>
+      <p class="ion-text-center">No hay comentarios todavía...</p>
+    </ng-template>
+  </ion-grid>
+</ion-content>
+ 

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{titulo}}</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaulHref="/places"></ion-back-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <!-- ponemos #title para pasar por parametro el titulo y la url -->
+        <ion-input placeholder="escribe un texto...." type="text"#title></ion-input>
+        <ion-input placeholder="write hhttp://webimage.webite.com" type="text" #image></ion-input>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-button color="primary" (click)="saveNewPlace(title, image)">Save</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
