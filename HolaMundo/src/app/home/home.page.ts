@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Photos } from './photos';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,14 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  photos:any
 
-  constructor() {}
+  constructor(private photosService: Photos) { }
 
+  ngOnInit() {
+    this.photosService.getPhotos().subscribe(data => {
+      console.log(data)
+      this.photos=data
+    })
+  }
 }

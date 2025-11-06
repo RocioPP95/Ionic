@@ -10,5 +10,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-Inicio de contenido
+
+  <ion-list>
+    <ion-card *ngFor="let photo of photos">
+      <ion-img [src]="photo.thumbnaiUrl"></ion-img>
+      <ion-card-content>
+        <p>{{photo.title}}</p>
+        <p>{{photo.albumId}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>
